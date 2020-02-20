@@ -19,4 +19,9 @@ export class AppComponent {
     },
     { title: "Next lesson", text: "Directives and pipes", id: 2 }
   ];
+
+  updatePosts(post: Post) {
+    this.posts.unshift(post);
+    // console.log("Post", post);
+  }
 }
