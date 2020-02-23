@@ -1,27 +1,19 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup } from "@angular/forms";
 
-export interface Post {
-  title: string;
-  text: string;
-  id?: number;
-}
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })
-export class AppComponent {
-  posts: Post[] = [
-    {
-      title: "I want to learn Angular components",
-      text: "I am still learning",
-      id: 1
-    },
-    { title: "Next lesson", text: "Directives and pipes", id: 2 }
-  ];
+export class AppComponent implements OnInit {
+  form: FormGroup;
 
-  updatePosts(post: Post) {
-    this.posts.unshift(post);
-    // console.log("Post", post);
+  ngOnInit() {
+    this.form = new FormGroup({});
+  }
+
+  submit() {
+    console.log("Form submitted", this.form);
   }
 }
